@@ -17,7 +17,6 @@ RUN mamba install -y \
     pytorch \
     scrapy \
     tensorflow-cpu \
-    theano \
     tokenizers \
     transformers \
     wordcloud \

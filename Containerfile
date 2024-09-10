@@ -1,4 +1,4 @@
-FROM docker.io/ucsb/scipy-base:latest
+FROM ucsb/scipy-base:latest
 
 MAINTAINER LSIT Systems <lsitops@lsit.ucsb.edu>
 
@@ -23,6 +23,6 @@ RUN mamba install -y \
     yellowbrick \
     zstandard
 
-#RUN pip install <libraries>
+RUN pip install Theano
 
 USER $NB_USER

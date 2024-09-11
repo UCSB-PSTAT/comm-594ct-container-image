@@ -23,6 +23,4 @@ RUN mamba install -y \
     yellowbrick \
     zstandard
 
-RUN pip install Theano
-
 USER $NB_USER

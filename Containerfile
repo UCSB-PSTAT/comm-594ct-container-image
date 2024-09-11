@@ -5,7 +5,6 @@ MAINTAINER LSIT Systems <lsitops@lsit.ucsb.edu>
 USER root
 
 RUN mamba install -y \
-    bertopic \
     datasets \
     gensim \
     jax \
@@ -22,5 +21,7 @@ RUN mamba install -y \
     wordcloud \
     yellowbrick \
     zstandard
+
+RUN pip install bertopic tf-keras
 
 USER $NB_USER

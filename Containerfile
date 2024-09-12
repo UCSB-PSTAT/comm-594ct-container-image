@@ -22,6 +22,6 @@ RUN mamba install -y \
     yellowbrick \
     zstandard
 
-RUN pip install bertopic tf-keras
+RUN pip install bertopic tf-keras pytensor
 
 USER $NB_USER

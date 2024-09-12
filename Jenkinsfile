@@ -39,7 +39,7 @@ pipeline {
                     steps {
                         container('podman') {
                             sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "from bertopic import BERTopic"' 
-                            sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import datasets; import gensim; import jax; import keras; import matplotlib; import nltk; import numpy; import pandas; import praw; import pyjq; import pyLDAvis;import scipy; import scrapy; import seaborn; import sklearn; import statsmodels; import sympy; import tensorflow; import tokenizers; import torch; import transformers; import wordcloud; import yellowbrick; import zstandard"'
+                            sh 'podman run -it --rm --pull=never localhost/$IMAGE_NAME python -c "import datasets; import gensim; import jax; import keras; import matplotlib; import nltk; import numpy; import pandas; import praw; import pyjq; import pyLDAvis; from pytensor import tensor as pt; import scipy; import scrapy; import seaborn; import sklearn; import statsmodels; import sympy; import tensorflow; import tokenizers; import torch; import transformers; import wordcloud; import yellowbrick; import zstandard"'
                             sh 'podman run -d --name=$IMAGE_NAME --rm --pull=never -p 8888:8888 localhost/$IMAGE_NAME start-notebook.sh --NotebookApp.token="jenkinstest"'
                             sh 'sleep 10 && curl -v http://localhost:8888/lab?token=jenkinstest 2>&1 | grep -P "HTTP\\S+\\s200\\s+[\\w\\s]+\\s*$"'
                             sh 'curl -v http://localhost:8888/tree?token=jenkinstest 2>&1 | grep -P "HTTP\\S+\\s200\\s+[\\w\\s]+\\s*$"'

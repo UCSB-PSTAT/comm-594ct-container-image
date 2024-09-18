@@ -15,13 +15,16 @@ RUN mamba install -y \
     pyLDAvis \
     pytorch \
     scrapy \
+    selenium \
     tensorflow-cpu \
     tokenizers \
+    top2vec \
     transformers \
+    webdriver-manager \
     wordcloud \
     yellowbrick \
     zstandard
 
-RUN pip install bertopic tf-keras pytensor
+RUN pip install afinn bertopic tf-keras pytensor
 
 USER $NB_USER

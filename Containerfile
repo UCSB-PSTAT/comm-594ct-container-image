@@ -18,13 +18,12 @@ RUN mamba install -y \
     selenium \
     tensorflow-cpu \
     tokenizers \
-    top2vec \
     transformers \
     webdriver-manager \
     wordcloud \
     yellowbrick \
     zstandard
 
-RUN pip install afinn bertopic tf-keras pytensor
+RUN pip install afinn bertopic tf-keras top2vec pytensor
 
 USER $NB_USER

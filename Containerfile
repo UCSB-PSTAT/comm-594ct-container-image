@@ -23,6 +23,6 @@ RUN mamba install -y \
     yellowbrick \
     zstandard
 
-RUN pip install afinn bertopic gensim tf-keras top2vec pytensor
+RUN pip install -U afinn bertopic gensim tf-keras top2vec pytensor
 
 USER $NB_USER

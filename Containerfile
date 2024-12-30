@@ -6,7 +6,6 @@ USER root
 
 RUN mamba install -y \
     datasets \
-    gensim \
     jax \
     keras \
     nltk \
@@ -24,6 +23,6 @@ RUN mamba install -y \
     yellowbrick \
     zstandard
 
-RUN pip install afinn bertopic tf-keras top2vec pytensor
+RUN pip install afinn bertopic gensim tf-keras top2vec pytensor
 
 USER $NB_USER

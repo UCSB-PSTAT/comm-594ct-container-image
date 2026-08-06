@@ -13,7 +13,6 @@ RUN apt-get update &&\
 RUN mamba install -y -c conda-forge \
     datasets \
     jax \
-    jq \
     keras \
     nltk \
     praw \
@@ -28,6 +27,6 @@ RUN mamba install -y -c conda-forge \
     yellowbrick \
     zstandard
 
-RUN pip install -U afinn bertopic gensim tf-keras top2vec pytensor tensorflow-cpu
+RUN pip install -U afinn bertopic gensim jq tf-keras top2vec pytensor tensorflow-cpu
 
 USER $NB_USER

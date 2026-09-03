@@ -1,21 +1,25 @@
 FROM registry.cloud.college.ucsb.edu/ucsb/scipy-base:latest
 
-MAINTAINER LSIT Systems <lsitops@lsit.ucsb.edu>
+LABEL maintainer="LSIT Systems <lsitops@lsit.ucsb.edu>"
+LABEL python.version="$(python --version 2>&1 | awk '{print $2}')"
 
 USER root
 
-RUN mamba install -y \
+RUN apt-get update &&\ 
+    apt-get install -y --no-install-recommends python3-full &&\
+    apt-get clean &&\
+    rm -rf /var/lib/apt/lists/*
+
+RUN mamba install -y -c conda-forge \
     datasets \
     jax \
     keras \
     nltk \
     praw \
-    pyjq \
     pyLDAvis \
     pytorch \
     scrapy \
     selenium \
-    tensorflow-cpu \
     tokenizers \
     transformers \
     webdriver-manager \
@@ -23,6 +27,6 @@ RUN mamba install -y \
     yellowbrick \
     zstandard
 
-RUN pip install -U afinn bertopic gensim tf-keras top2vec pytensor
+RUN pip install -U afinn bertopic gensim jq tf-keras top2vec pytensor tensorflow-cpu
 
 USER $NB_USER
